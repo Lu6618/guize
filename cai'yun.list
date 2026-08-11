@@ -1,0 +1,10 @@
+#!name=彩云天气 SVIP
+#!desc=彩云天气 SVIP 解锁
+#!author=chiupam
+#!update-url=https://raw.githubusercontent.com/chiupam/surge/main/scripts/javascript/unblock/ColorfulClouds_SVIP.sgmodule
+
+[Script]
+彩云天气SVIP = type=http-response,pattern=https?:\/\/biz\.caiyunapp\.com\/(membership_rights|v2\/user),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/chiupam/surge/main/scripts/javascript/unblock/ColorfulClouds_SVIP.js,timeout=60
+
+[MITM]
+hostname = biz.caiyunapp.com
