@@ -1,0 +1,10 @@
+#!name=TestFlight 美区登录按国区下载
+#!desc=登录为美区时，将 TestFlight 安装接口返回的 storefrontId 改写为国区（143465），按国区下载。需开启 MITM（testflight.apple.com）。
+#!author=改编自 Egern 模块（来源 t.me/Aa28413761/324），方向互换：原版是国区登录改美区，本版是美区登录改国区
+
+[Rewrite]
+# TestFlight 安装接口：把响应正文里的 storefrontId 改成国区 143465（后缀 -19,29 与原版保持一致）
+^https:\/\/testflight\.apple\.com\/v2\/accounts\/.*\/apps\/\d*\/builds\/\d*\/install$ url response-body "storefrontId"\s*:\s*[^,]*, "storefrontId":"143465-19,29",
+
+[MITM]
+hostname = testflight.apple.com
